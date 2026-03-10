@@ -23,3 +23,11 @@ python-mastery/
 ## Goal
 
 Complete all 4 levels → build the 4 projects → move on to ML fundamentals.
+
+| Level | Topics | Project |
+|---|---|---|
+| 1 — Foundation | Comprehensions, strings, functions, files, exceptions | CSV cleaner |
+| 2 — Intermediate | OOP, decorators, generators, type hints | DataProcessor class |
+| 3 — Advanced | Async, testing, profiling, modules | Async scraper + pytest suite |
+| 4 — Python for AI | NumPy, Pandas, ML pipelines, data cleaning | Installable ML pipeline package |
+| Extra | API calls, file parsers, vector stores | — |
