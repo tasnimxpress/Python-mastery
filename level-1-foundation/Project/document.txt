@@ -1,0 +1,167 @@
+# Project: CSV Cleaner
+# Level: 1 — Foundation
+# Skills used: file handling, strings, loops, conditionals, lists
+
+# ─────────────────────────────────────────
+# WHAT YOU ARE BUILDING
+# ─────────────────────────────────────────
+
+# A script that reads a messy CSV file, cleans it row by row,
+# and writes a clean version to a new file.
+#
+# This is something you will actually do as a data analyst / AI engineer.
+# Real-world data is always messy. This project teaches you to handle it with code.
+
+
+# ─────────────────────────────────────────
+# WHAT THE DATA LOOKS LIKE
+# ─────────────────────────────────────────
+
+# Your input file (dirty_data.csv) will look like this:
+#
+#   Name ,  Age , City ,  Salary
+#   ALICE ,28 , dhaka ,  50000
+#   bob,  , Chittagong, 60000
+#    ,35, dhaka,
+#   CHARLIE, 22 , , 45000
+#   dave , 270 , sylhet , 80000
+#
+# Problems in this data:
+#   - Extra spaces around values
+#   - Inconsistent casing (ALICE, bob, CHARLIE)
+#   - Missing values (empty fields)
+#   - Invalid values (age 270 is not realistic)
+#
+# Your output file (clean_data.csv) should look like this:
+#
+#   Name,Age,City,Salary
+#   Alice,28,Dhaka,50000
+#   Bob,N/A,Chittagong,60000
+#   N/A,35,Dhaka,N/A
+#   Charlie,22,N/A,45000
+#   Dave,INVALID,Sylhet,80000
+
+
+# ─────────────────────────────────────────
+# FEATURES TO BUILD
+# ─────────────────────────────────────────
+
+# Feature 1 — Read the CSV file
+#   Read dirty_data.csv line by line
+#   Hint: open(), .readlines()
+
+# Feature 2 — Parse each line
+#   Split each line into individual fields
+#   Hint: .split(",")
+
+# Feature 3 — Strip whitespace
+#   Remove leading and trailing spaces from every field
+#   Hint: .strip()
+
+# Feature 4 — Fix casing
+#   Names and cities should be Title Case
+#   Hint: .title()
+
+# Feature 5 — Handle missing values
+#   If a field is empty after stripping, replace it with "N/A"
+#   Hint: check if the value == ""
+
+# Feature 6 — Validate age
+#   Age must be a number between 1 and 120
+#   If it fails this check, replace with "INVALID"
+#   Hint: .isdigit(), int()
+
+# Feature 7 — Write the clean data
+#   Join the cleaned fields back together with commas
+#   Write each cleaned line to clean_data.csv
+#   Hint: .join(), open() with write mode
+
+
+# ─────────────────────────────────────────
+# PROJECT STRUCTURE
+# ─────────────────────────────────────────
+
+# csv_cleaner/
+# ├── dirty_data.csv      ← you create this manually (copy the sample above)
+# ├── csv_cleaner.py      ← your main script
+# └── clean_data.csv      ← generated after you run the script
+
+
+# ─────────────────────────────────────────
+# STEP BY STEP — BUILD IN THIS ORDER
+# ─────────────────────────────────────────
+
+# STEP 1 — Create dirty_data.csv
+#   Manually create the file and paste the messy data above into it.
+#   This is your starting point. No code yet.
+
+# STEP 2 — Read and print the file
+#   Write code that just opens dirty_data.csv and prints every line.
+#   Goal: confirm you can read the file correctly.
+
+# STEP 3 — Split each line into fields
+#   Loop through the lines and split each one by comma.
+#   Print the result so you can see the individual fields.
+#   Goal: understand what you are working with per field.
+
+# STEP 4 — Strip whitespace from every field
+#   After splitting, loop through the fields and strip each one.
+#   Print before and after to verify it is working.
+
+# STEP 5 — Fix casing
+#   Apply .title() to the Name and City fields specifically.
+#   Think about: how do you know which field is Name and which is City?
+#   Hint: the first line is the header — you can use it to find the column index.
+
+# STEP 6 — Handle missing values
+#   After stripping, check if any field is empty.
+#   If it is, replace it with the string "N/A".
+
+# STEP 7 — Validate age
+#   Find the Age field. Check if it is a valid number between 1 and 120.
+#   If not, replace with "INVALID".
+#   Think about: what if age is missing? Does your N/A check from Step 6 handle that?
+
+# STEP 8 — Write to clean_data.csv
+#   Join the cleaned fields with commas and write each row to a new file.
+#   Open clean_data.csv in write mode and write line by line.
+
+# STEP 9 — Test with edge cases
+#   Add more messy rows to dirty_data.csv and re-run your script.
+#   Does it handle all cases correctly?
+
+
+# ─────────────────────────────────────────
+# THINGS TO THINK ABOUT (not solutions)
+# ─────────────────────────────────────────
+
+# - The first row is a header. Should you clean it the same way as data rows?
+# - What if a field has a number with spaces like "  28  " — does .strip() fix that?
+# - What order should you apply the cleaning steps? Does order matter?
+# - What happens if you run the script twice — does it overwrite or append?
+
+
+# ─────────────────────────────────────────
+# HOW TO RUN
+# ─────────────────────────────────────────
+
+# In your terminal:
+#   cd csv_cleaner
+#   python csv_cleaner.py
+#
+# Then open clean_data.csv and check if it matches the expected output above.
+
+
+# ─────────────────────────────────────────
+# DONE? STRETCH CHALLENGES
+# ─────────────────────────────────────────
+
+# Once the basic version works, try these:
+#
+# - Print a summary after cleaning:
+#     "5 rows processed. 3 missing values replaced. 1 invalid age found."
+#
+# - Let the user pass the filename from the terminal instead of hardcoding it
+#     Hint: import sys, then use sys.argv
+#
+# - Skip entirely empty rows (rows where every field is empty)
