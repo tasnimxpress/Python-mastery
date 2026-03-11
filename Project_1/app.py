@@ -1,9 +1,22 @@
-user_prompt = 'Enter a todo: '
-todo1 = input(user_prompt)
-todo2 = input(user_prompt)
-todo3 = input(user_prompt)
+todos = []
 
-# print(user_prompt)
-todos = [todo1, todo2, todo3]
+while True:
+    user_action = input('Type add, show or exit: ')
+    user_action = user_action.strip().lower()
 
-print(todos)
+    match user_action:
+        case 'add':
+            todo = input('Enter a todo: ')
+            todo = todo.strip().capitalize()
+            todos.append(todo)
+        case 'show':
+            for item in todos:
+                serial = todos.index(item) + 1
+                print(serial, item)
+        case 'exit':
+            break
+        case _:
+            print('This is an unknown command.')
+
+
+print('See you soon.')
