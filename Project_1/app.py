@@ -15,8 +15,10 @@ while True:
                 print(serial, item)
         case 'edit':
             edit_option = int(input('Number of the todo to edit: '))
-            position = int(edit_option) - 1
-            print(todos[position])
+            position = edit_option - 1
+            existing_todo = todos[position]
+            print(existing_todo)
+
             new_todo = input('Enter the new todo: ')
             todos[position] = new_todo
             print('todos modified')
