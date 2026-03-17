@@ -1,0 +1,3 @@
+this is the test file to -
+open and read a file,
+using python.
